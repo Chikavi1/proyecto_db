@@ -32,11 +32,21 @@ class CrudController extends Controller
      */
     public function store(Request $req)
     {
+
+        $link_file = "public/archivos/";
+        $archivo = $req->file('archivo')->store($link_file);
+        $nombre = str_replace('public/','storage/', $archivo);
+
         $proyecto = new Proyectos();
         $proyecto->nombre = $req->nombre;
         $proyecto->fecha  = $req->fecha;
-        $proyecto->archivo = $req->archivo;
+        $proyecto->archivo = $nombre;
         $proyecto->comentario = $req->comentario;
+
+        
+      
+
+
         $proyecto->save();
 
         return redirect('/home');

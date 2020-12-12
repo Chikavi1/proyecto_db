@@ -83,7 +83,8 @@
             <h1>{{ucfirst( $proyec->nombre) }}</h1>
             <p>{{ ucfirst( $proyec->comentario ) }}</p>
             <span>Fecha: {{ $proyec->fecha }}</span><br>
-            <a href="">{{ $proyec->archivo }}</a>
+            {{-- <a href="{{ storage_path($proyec->archivo) }}">{{ $proyec->archivo }}</a> --}}
+            <a href="{!! asset($proyec->archivo) !!}" target="_blank" class="text-center">ver archivo</a><br>
 
         </div>
         <div class="col m2 z-depth-2"  style="background: #ffffff  !important; min-height: 100%;height:40em !important;">

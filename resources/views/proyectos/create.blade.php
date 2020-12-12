@@ -54,7 +54,7 @@
         <div class="center">
 
         <div class="col m8" style="background:#f5f6fa;height:40em">
-            <form class="form-horizontal" method="POST" action="{{ route('proyectos.store') }}">
+            <form class="form-horizontal" method="POST" action="{{ route('proyectos.store') }}" enctype="multipart/form-data">
                 {{ csrf_field() }}
             
                 <div class="col s12 offset-m2 m8" style="margin-top: 10em;">
@@ -75,10 +75,10 @@
                                 <div class="file-field input-field">
                                     <div class="btn">
                                       <span >Archivo</span>
-                                      <input type="file">
+                                      <input type="file" name="archivo" accept="image/x-png,image/gif,image/jpeg">
                                     </div>
                                     <div class="file-path-wrapper">
-                                      <input placeholder="subir archivo" class="file-path validate" type="text" name="archivo" accept="image/x-png,image/gif,image/jpeg" required>
+                                      <input placeholder="subir archivo" class="file-path validate" type="text"   required>
                                     </div>
                                   </div>
                               </div>

@@ -54,7 +54,7 @@
         <div class="center">
 
         <div class="col m8" style="background:#f5f6fa;height:40em">
-            <form class="form-horizontal" method="POST" action="{{ route('proyectos.update',$proyec->id) }}">
+            <form class="form-horizontal" method="POST" action="{{ route('proyectos.update',$proyec->id) }}" enctype="multipart/form-data">
                 {{ csrf_field() }}
                 {{ method_field('PATCH') }}
             
