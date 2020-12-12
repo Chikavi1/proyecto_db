@@ -47,26 +47,60 @@
             <ul>
                 @foreach($proyectos as $proyecto)
                 <li style="padding: 1em;">
-                   <a href="{{ route('proyectos.show',$proyecto->id) }}">{{  $proyecto->nombre}}</a> 
+                    <a href="{{ route('proyectos.show',$proyecto->id) }}">{{  $proyecto->nombre}}</a> 
                 </li>
                 @endforeach
             </ul>
         </div>
         <div class="center">
 
-            <div class="col m8" style="background:#f5f6fa;height:40em">
-
+        <div class="col m8" style="background:#f5f6fa;height:40em">
+            <form class="form-horizontal" method="POST" action="{{ route('proyectos.update',$proyec->id) }}">
+                {{ csrf_field() }}
+                {{ method_field('PATCH') }}
+            
                 <div class="col s12 offset-m2 m8" style="margin-top: 10em;">
-                    <div class="card" style="background:#b43cec;border-radius:1em;margin-bottom:3em;">
-                      <div class="card-content white-text">
-                        <h3>First solve the problem then,Write the code</h3>
-                      </div>
+                    <div class="" style="border-radius:1em;margin-bottom:3em;">
+                        <div class="col s12">
+                            <div class="row">
+
+                              <div class="input-field col s6">
+                                <input id="nombre" type="text" class="validate" name="nombre" value="{{ $proyec->nombre }}">
+                                <label for="nombre">Nombre</label>
+                              </div>
+                              <div class="input-field col s6">
+                                <input id="fecha" type="text" class="datepicker" name="fecha" value="{{ $proyec->fecha }}">
+                                <label for="fecha">Fecha</label>
+                              </div>
+                            </div>
+                            <div class="row">
+                                <div class="file-field input-field">
+                                    <div class="btn">
+                                      <span >Archivo</span>
+                                      <input type="file">
+                                    </div>
+                                    <div class="file-path-wrapper">
+                                      <input placeholder="subir archivo" class="file-path validate" type="text" name="archivo" value="{{ $proyec->archivo }}" accept="image/x-png,image/gif,image/jpeg">
+                                    </div>
+                                  </div>
+                              </div>
+                            <div class="row">
+                              <div class="input-field col s12">
+                                <input id="comentario" type="text" class="validate" name="comentario" value="{{ $proyec->comentario }}">
+                                <!--<textarea id="textarea1" class="materialize-textarea" name="Comentario"></textarea>-->
+                                <label for="comentario">comentario</label>
+                              </div>
+                            </div>
+
+
                     </div>
-                    <a href="{{ route('proyectos.create') }}"style="border-radius:.6em;padding:1em 2em;background:#ede9fe;color:#6d28d9;font-weight:bold;putline:none;border:2px dashed grey;">Crear</a>
+                    <button type="submit" style="border-radius:.6em;padding:1em 2em;background:#ede9fe;color:#6d28d9;font-weight:bold;putline:none;border:2px dashed grey;">Editar</button>
                   </div>
+                </form>
+            </div>
+
 
         </div>
-
         <div class="col m2 z-depth-2"  style="background: #ffffff  !important; min-height: 100%;height:40em !important;">
            <div class="center">
                <img width="100" height="100" style="margin-top:3em;" class="circle " src="https://images.unsplash.com/photo-1584518969469-c2d99c7760a0?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="">

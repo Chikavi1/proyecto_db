@@ -10,6 +10,13 @@
     <title>Document</title>
 
 </head>
+
+<style>
+    .block{
+        width:100%;
+    }
+
+</style>
 <body>
   <form enctype="multipart/form-data" action="crear.php"  method="post">
     <nav>
@@ -47,26 +54,39 @@
             <ul>
                 @foreach($proyectos as $proyecto)
                 <li style="padding: 1em;">
-                   <a href="{{ route('proyectos.show',$proyecto->id) }}">{{  $proyecto->nombre}}</a> 
+                    <a href="{{ route('proyectos.show',$proyecto->id) }}">{{ucfirst( $proyecto->nombre)}}</a> 
                 </li>
                 @endforeach
             </ul>
         </div>
         <div class="center">
 
-            <div class="col m8" style="background:#f5f6fa;height:40em">
+        <div class="col m8" style="background:#f5f6fa;height:40em">
+          
+            <div class="row " style="margin:1em;">
+                <div class="col m6">
+                    <a class="btn block" href="{{ route('proyectos.edit',$proyec->id) }}">Actualizar</a>
+                </div>
+                <div class="col m6">
+                    <form action="{{action('CrudController@destroy', $proyec->id)}}" method="post">
+                        {{csrf_field()}}
+                        <input name="_method" type="hidden" value="DELETE">
+                        <input type="hidden" value="{{$proyec->id}}">
+                        <button type="submit" class="btn red darken-2 block">Eliminar</button>
+                    </td>
+                    </form>
+                </div>
+            </div>
+           
 
-                <div class="col s12 offset-m2 m8" style="margin-top: 10em;">
-                    <div class="card" style="background:#b43cec;border-radius:1em;margin-bottom:3em;">
-                      <div class="card-content white-text">
-                        <h3>First solve the problem then,Write the code</h3>
-                      </div>
-                    </div>
-                    <a href="{{ route('proyectos.create') }}"style="border-radius:.6em;padding:1em 2em;background:#ede9fe;color:#6d28d9;font-weight:bold;putline:none;border:2px dashed grey;">Crear</a>
-                  </div>
+
+
+            <h1>{{ucfirst( $proyec->nombre) }}</h1>
+            <p>{{ ucfirst( $proyec->comentario ) }}</p>
+            <span>Fecha: {{ $proyec->fecha }}</span><br>
+            <a href="">{{ $proyec->archivo }}</a>
 
         </div>
-
         <div class="col m2 z-depth-2"  style="background: #ffffff  !important; min-height: 100%;height:40em !important;">
            <div class="center">
                <img width="100" height="100" style="margin-top:3em;" class="circle " src="https://images.unsplash.com/photo-1584518969469-c2d99c7760a0?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="">
