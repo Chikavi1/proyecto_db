@@ -37,7 +37,7 @@
                 <div class="flex justify-between">
                     <label class="block text-gray-700 text-sm font-bold mb-2">Cargo</label>
                 </div>
-                    <select  name="Cargo" class="bg-gray-200 text-gray-700 focus:outline-none focus:shadow-outline border border-gray-300 rounded py-2 px-4 block w-full appearance-none">
+                    <select  name="cargo" class="bg-gray-200 text-gray-700 focus:outline-none focus:shadow-outline border border-gray-300 rounded py-2 px-4 block w-full appearance-none">
                     <option value="Desarrollador">Desarrollador</option>
                     <option value="Lider">Lider</option>
                     </select>

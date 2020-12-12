@@ -18,13 +18,12 @@
 
 </style>
 <body>
-  <form enctype="multipart/form-data" action="crear.php"  method="post">
     <nav>
         <div class="nav-wrapper" style="background: #885df4 !important;">
           <a href="/home" class="brand-logo center" >Chikavis</a>
           <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
           <ul class="right hide-on-med-and-down">
-            <li>
+            
               <a href="{{ route('logout') }}"
                   onclick="event.preventDefault();
                            document.getElementById('logout-form').submit();">
@@ -34,7 +33,7 @@
               <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                   {{ csrf_field() }}
               </form>
-          </li>
+          
           </ul>
         </div>
       </nav>
@@ -112,7 +111,6 @@
 });
     </script>
 
-  </form>
 
 </body>
 </html>

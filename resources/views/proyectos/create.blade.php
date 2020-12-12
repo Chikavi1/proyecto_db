@@ -11,7 +11,6 @@
 
 </head>
 <body>
-  <form enctype="multipart/form-data" action="crear.php"  method="post">
     <nav>
         <div class="nav-wrapper" style="background: #885df4 !important;">
           <a href="/home" class="brand-logo center" >Chikavis</a>
@@ -125,7 +124,6 @@
 });
     </script>
 
-  </form>
 
 </body>
 </html>
